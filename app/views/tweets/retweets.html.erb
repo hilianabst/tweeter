@@ -1,0 +1,10 @@
+<p>
+<strong>Content:</strong>
+<%= @tweet.content%>
+</p>
+
+<p>
+  <strong>Quantity retweets:</strong>
+  <%= @tweet.tweets.count %> <%= (@tweet.tweets.count) == 1 ? 'retweet' : 'Retweets'%></p>
+</p>
+<%= link_to 'Back', tweets_path %>

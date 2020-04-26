@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Content:</strong>
+  <%= @tweet.content %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @tweet.photo %>
+</p>
+
+
+<p>
+  <strong>Quantity likes:</strong>
+  <%= @tweet.likes.count %> <%= (@tweet.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+</p>
+
+<p>
+  <strong>Quantity retweets:</strong>
+  <%= @tweet.tweets.count %> <%= (@tweet.tweets.count) == 1 ? 'retweet' : 'Retweets'%></p>
+</p>
+
+<%# <p>
+  <strong>Quantity retweet:</strong>
+  <%= @tweet.likes.map(&:quantity_retweet).join(', ') %>
+    <%# </p>  %>
+<%# <%= button_to 'Like', tweet_likes_path(@tweet), method: :post %> 
+
+
+<% pre_like = @tweet.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', tweet_like_path(@tweet, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', tweet_likes_path(@tweet), method: :post %>
+<% end %>
+
+<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
+<%= link_to 'Back', tweets_path %>

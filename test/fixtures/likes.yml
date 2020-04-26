@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity_like: MyString
+  quantity_retweet: MyString
+  tweet: one
+
+two:
+  quantity_like: MyString
+  quantity_retweet: MyString
+  tweet: two
