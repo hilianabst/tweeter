@@ -26,8 +26,7 @@
         <td><%= button_to 'Unlike', tweet_like_path(tweet, pre_like), method: :delete %></td>
         <td><% else %></td>
         <td><%= button_to 'Like', tweet_likes_path(tweet), method: :post %></td>
-      <td><%= link_to 'Retweet', retweet_path(tweet)%></td>
-        
+      
       <% end %>
 
 
@@ -45,7 +44,7 @@
     <tr>
         <th>Like</th>
          <td><%= tweet.likes.count %> <%= (tweet.likes.count) == 1 ? 'Like' : 'Likes'%></td>
-
+    <td><%= link_to 'Retweet', retweet_path(tweet)%></td>
        
 
    </tr>
