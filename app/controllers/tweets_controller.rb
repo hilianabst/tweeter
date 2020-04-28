@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all.page(params[:page]).per(2)
+    @tweets = Tweet.all.page(params[:page]).per(50)
   end
 
   # GET /tweets/1

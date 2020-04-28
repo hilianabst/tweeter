@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+puts 'started loading person data'
+
+100.times do |row|
+    Tweet.create content: Faker::Lorem.paragraph
+end
+puts 'finished loading person data'

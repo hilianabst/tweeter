@@ -40,7 +40,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'jquery-rails', '~> 4.3'
 gem 'rails-ujs'
-
+gem 'faker', require: false 
 
 
 group :development, :test do
