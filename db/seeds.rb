@@ -13,4 +13,4 @@ puts 'started loading person data'
 100.times do |row|
     Tweet.create content: Faker::Lorem.paragraph
 end
-puts 'finished loading person data'
+puts 'finished loading person data'AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
