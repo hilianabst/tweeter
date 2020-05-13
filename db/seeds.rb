@@ -8,9 +8,18 @@
 
 require 'faker'
 
+Tweet.destroy_all
+
 puts 'started loading person data'
 
+users_number = User.all.size
+
 100.times do |row|
-    Tweet.create content: Faker::Lorem.paragraph
+    Tweet.create content: Faker::Lorem.paragraph, 
+                 user_id: (1..users_number).to_a.sample,
+                 photo: "https://picsum.photos/id/#{row}/1/1"
 end
+
 puts 'finished loading person data'
+
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -41,6 +41,8 @@ gem 'devise'
 gem 'jquery-rails', '~> 4.3'
 gem 'rails-ujs'
 gem 'faker', require: false 
+gem 'activeadmin'
+gem 'dotenv-rails'
 
 
 group :development, :test do

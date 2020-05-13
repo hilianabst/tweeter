@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy, :retweets]
   before_action :authenticate_user!, :except => [:index]
-  
+  http_basic_authenticate_with name: "hello", password: "world", except: :index
 
 
   # def retweets
@@ -13,17 +13,27 @@ class TweetsController < ApplicationController
   #   params.require(:tweet).permit(:content, :user_id, :tweet_id)
   # end 
 
-# def tiempo
-#   starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-#   ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-#    transcurrido = ending - starting
-#    @tweet = Tweet.tiempo
-#  end
-    
-  # GET /tweets
-  # GET /tweets.json
+  def hashtags
+      tag = Tag.find_by(name: params[:name]).per(50)
+      @tweets = tag.tweets
+  
+    end
+
+  def apis
+    @tweet = Tweet.all.page(params[:page]).per(50)
+    # render json: @tweet
+    render plain: JSON.pretty_generate(@tweet.as_json)
+
+  end
+
   def index
-    @tweets = Tweet.all.order("created_at DESC").page(params[:page]).per(50)
+    search = []
+    if params[:content].present?
+      search = Tweet.content(params[:content])
+    else
+      search = Tweet.all.with_image
+    end
+    @tweets = search.order("created_at DESC").page(params[:page]).per(50)
   end
 
   # GET /tweets/1
@@ -83,7 +93,7 @@ class TweetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
-      @tweet = Tweet.find(params[:id])
+      @tweet = Tweet.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.
