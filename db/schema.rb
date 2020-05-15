@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_05_06_223025) do
+=======
+ActiveRecord::Schema.define(version: 2020_05_06_160120) do
+>>>>>>> 2e48a251abd03b2f95cecba81ac4814999e76049
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,11 +46,14 @@ ActiveRecord::Schema.define(version: 2020_05_06_223025) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "apis", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+=======
+>>>>>>> 2e48a251abd03b2f95cecba81ac4814999e76049
   create_table "likes", force: :cascade do |t|
     t.bigint "tweet_id"
     t.datetime "created_at", null: false

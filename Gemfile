@@ -42,8 +42,13 @@ gem 'jquery-rails', '~> 4.3'
 gem 'rails-ujs'
 gem 'faker', require: false 
 gem 'activeadmin'
+<<<<<<< HEAD
 gem 'dotenv-rails'
+=======
+>>>>>>> 2e48a251abd03b2f95cecba81ac4814999e76049
 
+gem 'thor', '~> 0.19.1'
+gem 'activeadmin_addons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

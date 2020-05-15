@@ -19,7 +19,11 @@ users_number = User.all.size
                  user_id: (1..users_number).to_a.sample,
                  photo: "https://picsum.photos/id/#{row}/1/1"
 end
+<<<<<<< HEAD
 
 puts 'finished loading person data'
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+=======
+puts 'finished loading person data'AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+>>>>>>> 2e48a251abd03b2f95cecba81ac4814999e76049

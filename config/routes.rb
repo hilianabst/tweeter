@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :likes
   end
-
   get '/tweets/:id/retweets', to: 'tweets#retweets', as: "retweet"
   root 'tweets#index'
   get '/tweets/hashtag/:name', to: 'tweets#hashtags'

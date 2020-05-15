@@ -6,6 +6,17 @@
   </p>
 <% end %>
 
+  
+    <%= form_tag tweets_path, :method => 'get', class:"form-inline my-4"  do %>
+      <p>
+        <%= text_field_tag :content, params[:content], class:"form-control mr-sm-2" %>
+        <%= submit_tag "Search", :content => nil, class:"btn btn-outline-light my-2 my-sm-0" %>
+      </p>
+    
+   
+
+<% end %>
+
 <h1>Tweets</h1>
 <br>
 

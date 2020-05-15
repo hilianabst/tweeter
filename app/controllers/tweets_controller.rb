@@ -31,7 +31,11 @@ class TweetsController < ApplicationController
     if params[:content].present?
       search = Tweet.content(params[:content])
     else
+<<<<<<< HEAD
       search = Tweet.all.with_image
+=======
+      search = Tweet.all
+>>>>>>> 2e48a251abd03b2f95cecba81ac4814999e76049
     end
     @tweets = search.order("created_at DESC").page(params[:page]).per(50)
   end
